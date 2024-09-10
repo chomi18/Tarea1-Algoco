@@ -20,10 +20,17 @@ void selectionSort(vector<int>& vec) {
     }
 }
 
+void printArray(const vector<int>& vec) {
+    for (int i = 0; i < vec.size(); ++i) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+}
+
 // Driver program
 int main()
 {   
-    ifstream archivo("dataset_random.txt");
+    ifstream archivo("dataset_random1.txt");
     vector<int> arr;
     if(archivo.is_open()){
         string linea;
@@ -41,6 +48,7 @@ int main()
 
         auto end = chrono::high_resolution_clock::now();
         chrono::duration<double> duration = end - start;
+        printArray(arr);
         //Termina el temporiazdor
         cout << "Algoritmo 'SelectionSort'" << endl;
         cout << "------------------------------------------------------------------------" << endl; 

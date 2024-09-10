@@ -1,60 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Merges two subarrays of arr[].
-// First subarray is arr[left..mid]
-// Second subarray is arr[mid+1..right]
-void merge(vector<int>& arr, int left, 
-                     int mid, int right)
-{
+// Merges two subarrays of arr[]. First subarray is arr[left..mid] Second subarray is arr[mid+1..right]
+void merge(vector<int>& arr, int left, int mid, int right){
     int n1 = mid - left + 1;
     int n2 = right - mid;
-
     // Create temp vectors
     vector<int> L(n1), R(n2);
-
     // Copy data to temp vectors L[] and R[]
     for (int i = 0; i < n1; i++)
         L[i] = arr[left + i];
     for (int j = 0; j < n2; j++)
         R[j] = arr[mid + 1 + j];
-
     int i = 0, j = 0;
     int k = left;
-
-    // Merge the temp vectors back 
-    // into arr[left..right]
+    // Merge the temp vectors back into arr[left..right]
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
             arr[k] = L[i];
             i++;
-        }
-        else {
+        }else {
             arr[k] = R[j];
             j++;
         }
         k++;
     }
-
-    // Copy the remaining elements of L[], 
-    // if there are any
+    // Copy the remaining elements of L[], if there are any
     while (i < n1) {
         arr[k] = L[i];
         i++;
         k++;
     }
-
-    // Copy the remaining elements of R[], 
-    // if there are any
+    // Copy the remaining elements of R[], if there are any
     while (j < n2) {
         arr[k] = R[j];
         j++;
         k++;
     }
 }
-
-// begin is for left index and end is right index
-// of the sub-array of arr to be sorted
+// begin is for left index and end is right index, of the sub-array of arr to be sorted
 void mergeSort(vector<int>& arr, int left, int right)
 {
     if (left >= right)
@@ -66,18 +50,17 @@ void mergeSort(vector<int>& arr, int left, int right)
     merge(arr, left, mid, right);
 }
 
-// Function to print a vector
-void printVector(vector<int>& arr)
-{
-    for (int i = 0; i < arr.size(); i++)
-        cout << arr[i] << " ";
+void printArray(const vector<int>& vec) {
+    for (int i = 0; i < vec.size(); ++i) {
+        cout << vec[i] << " ";
+    }
     cout << endl;
 }
 
 // Driver code
 int main()
 {
-    ifstream archivo("dataset_random.txt");
+    ifstream archivo("dataset_random1.txt");
     vector<int> arr;
     if(archivo.is_open()){
         string linea;
@@ -97,6 +80,7 @@ int main()
 
         auto end = chrono::high_resolution_clock::now();
         chrono::duration<double> duration = end - start;
+        printArray(arr);
         cout << "Algoritmo 'MergeSort'" << endl;
         cout << "------------------------------------------------------------------------" << endl; 
         cout << fixed << setprecision(3);

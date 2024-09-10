@@ -4,7 +4,7 @@ using namespace std;
 int partition(vector<int>& arr, int low, int high) {
   
     // Choose the pivot
-    int pivot = arr[high];
+    int pivot = low + rand() % (high - low + 1);
   
     // Index of smaller element and indicates 
     // the right position of pivot found so far
@@ -41,8 +41,15 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
+void printArray(const vector<int>& vec) {
+    for (int i = 0; i < vec.size(); ++i) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+}
+
 int main() {
-    ifstream archivo("dataset_random.txt");
+    ifstream archivo("dataset_random1.txt");
     vector<int> arr;
     if(archivo.is_open()){
         string linea;
@@ -62,6 +69,7 @@ int main() {
 
         auto end = chrono::high_resolution_clock::now();
         chrono::duration<double> duration = end - start;
+        printArray(arr);
         cout << "Algoritmo 'QuickSort'" << endl;
         cout << "------------------------------------------------------------------------" << endl; 
         cout << fixed << setprecision(3);
