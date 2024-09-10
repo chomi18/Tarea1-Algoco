@@ -84,12 +84,11 @@ int main() {
 
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
-    imprimirMatriz()
+    imprimirMatriz(resultado);
     cout << "Multiplicación de matrices con la segunda traspuesta" << endl;
     cout << "------------------------------------------------------------------------" << endl; 
     cout << fixed << setprecision(4);
     cout << "El tiempo de ejecución fue de: " << duration.count() << "segundos" << endl;
-    imprimirMatriz(resultado);
 
     return 0;
 }

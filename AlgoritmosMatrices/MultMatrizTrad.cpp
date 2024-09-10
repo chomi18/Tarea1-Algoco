@@ -70,13 +70,12 @@ int main() {
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
     // Imprimir la matriz resultante
+    imprimirMatriz(resultado);
     cout << endl;
     cout << "Multiplicación de matrices'" << endl;
     cout << "------------------------------------------------------------------------" << endl; 
     cout << fixed << setprecision(4);
     cout << "El tiempo de ejecución fue de: " << duration.count() << "segundos" << endl;
-    imprimirMatriz(resultado);
-
 
     return 0;
 }
