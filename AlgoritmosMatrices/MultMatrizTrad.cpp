@@ -65,7 +65,7 @@ int main() {
     vector<vector<int>> resultado;
     auto start = chrono::high_resolution_clock::now();
     // Multiplicar las matrices y mostrar el resultado
-    multiplicarMatrices(mat1, mat2, R1, C1, R2, C2);
+    multiplicarMatrices(mat1, mat2, R1, C1, R2, C2, resultado);
 
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;

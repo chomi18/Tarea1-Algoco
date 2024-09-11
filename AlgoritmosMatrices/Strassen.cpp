@@ -148,7 +148,7 @@ void printMatrix(const Matrix& matrix) {
     }
 }
 int main() {
-    ifstream archivo("dataset_cuadratica3.txt");
+    ifstream archivo("dataset_cuadratica1.txt");
     if (!archivo.is_open()) {
         cerr << "Error al abrir el archivo." << endl;
         return 1;

@@ -9,13 +9,13 @@ void imprimirMatriz(const vector<vector<int>>& matriz) {
         cout << endl;
     }
 }
-
+//Retorna una matris transpuesta
 vector<vector<int>> transponerMatriz(const vector<vector<int>>& matriz) {
     int filas = matriz.size();
     int columnas = matriz[0].size();
-    vector<vector<int>> transpuesta(columnas, vector<int>(filas));
+    vector<vector<int>> transpuesta(columnas, vector<int>(filas)); //Crea una matriz con las dimensiones transpuestas a la recibidacomo parametro
 
-    for (int i = 0; i < filas; ++i) {
+    for (int i = 0; i < filas; ++i) { //Transcribe los valores de la matriz a la matriz transpuesta
         for (int j = 0; j < columnas; ++j) {
             transpuesta[j][i] = matriz[i][j];
         }
@@ -27,7 +27,7 @@ vector<vector<int>> transponerMatriz(const vector<vector<int>>& matriz) {
 vector<vector<int>> multiplicarMatrices(const vector<vector<int>>& mat1, const vector<vector<int>>& mat2, int R1, int C1, int R2, int C2) {
     if (C1 != C2) {
         cout << "No se pueden multiplicar las matrices: el número de columnas de la primera matriz debe ser igual al número de filas de la segunda." << endl;
-        return;
+        return vector<vector<int>>();
     }
     // Crear la matriz resultado con dimensiones R1 x C2
     vector<vector<int>> resultado(R1, vector<int>(C2, 0));
