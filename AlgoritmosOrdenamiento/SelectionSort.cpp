@@ -4,16 +4,15 @@ using namespace std;
 // Function for Selection sort
 void selectionSort(vector<int>& vec) {
     int n = vec.size();
-    for (int i = 0; i < n - 1; i++) {
-        // Find the minimum element in the unsorted array
-        int min_idx = i;
-        for (int j = i + 1; j < n; j++) {
+    for (int i = 0; i < n - 1; i++) { //Se usa para recorrero toda la lista
+        int min_idx = i; //Almacena la posición del menor elemento del resto lista inicializándola en la posición en la que parte
+        for (int j = i + 1; j < n; j++) { //Recorre el resto de la lista para revisar si hay un elemento menor
             if (vec[j] < vec[min_idx]) {
-                min_idx = j;
+                min_idx = j;  //Si hay un elemento menor en la lista almacena su posición
             }
         }
 
-        // Swap the found minimum element with the first element
+        //Si encontro un elemento menor, hace el cambio
         if (min_idx != i) {
             swap(vec[min_idx], vec[i]);
         }
